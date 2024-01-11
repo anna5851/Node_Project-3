@@ -15,8 +15,8 @@ pipeline {
       steps{
         withCredentials([usernamePassword(credentialsId:'docker_cred', passwordVariable:'DOCKERHUB_PASSWORD', usernameVariable:'DOCKERHUB_USERNAME')]) {
           sh 'docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD'
-          sh 'docker tag my_node_app:1.0 anna5851/nodejs-project-3:2.0'
-          sh 'docker push anna5851/nodejs-project-3:2.0'
+          sh 'docker tag my_node_app:1.0 anna5851/nodejs-project-3:3.0'
+          sh 'docker push anna5851/nodejs-project-3:3.0'
           sh 'docker logout'
         }
       }
