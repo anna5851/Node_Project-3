@@ -11,12 +11,12 @@ pipeline {
         sh 'docker build -t my.node.app:1.0 .'
       }
     }
-    stage("docker push"){
+    stage("Docker Push"){
       steps{
         withCredentials{[usernamePassword(credentialsId: 'docker_cred', passwordVariable:'DOCKERHUB_PASSWORD',usernameVariable:'DOCKERHUB_USERNAME')]} {
           sh 'docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD'
-          sh 'docker tag my.node.app:1.0 anna5851/nodejs-project_3:1.0'
-          sh 'docker push anna5851/nodejs-project_3:1.0'
+          sh 'docker tag my.node.app:1.0 anna5851/nodejs-project_3'
+          sh 'docker push anna5851/nodejs-project_3'
           sh 'docker logout'
         }
       }
